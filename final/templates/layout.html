@@ -5,6 +5,15 @@
         <title>배민 따라하기</title>
     </head>
     <body>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">프로필</a>
+            <a href="#">로그아웃</a>
+        {% else %}
+            <a href="{% url 'login' %}">로그인</a>
+            <a href="{% url 'signup' %}">회원가입</a>
+        {% endif %}
+        <hr/>
+
         {% block content %}
         {% endblock %}
     </body>
